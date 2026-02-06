@@ -64,14 +64,14 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight"
             >
-              A sua assessoria de
+              Acelere Suas Vendas com a
               <motion.span 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
                 className="block bg-gradient-to-r from-[#FD7E00] via-[#FF6600] to-[#FD7E00] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
               >
-                marketing e vendas
+                IA da Criant
               </motion.span>
             </motion.h1>
             
