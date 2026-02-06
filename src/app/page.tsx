@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 7) * 100);
+    setProgress(((currentSlide + 1) / 8) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -233,6 +233,172 @@ export default function Home() {
               <p className="text-sm text-gray-400 italic">
                 Fonte: IBGE, CBIC, CNAI e relatórios de mercado 2024
               </p>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "market-research",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
+            >
+              <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">IA no Brasil</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
+            >
+              O mercado está mudando rapidamente - veja os números da pesquisa de mercado
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-8 max-w-5xl mx-auto"
+            >
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="p-8 bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-blue-400/50 transition-all duration-300"
+              >
+                <div className="flex items-start gap-6">
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, 5, -5, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="text-5xl mb-2"
+                  >🤖</motion.div>
+                  <div className="flex-1 text-left">
+                    <div className="text-4xl md:text-5xl font-black text-white mb-3">
+                      <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">37%</span> vs <span className="text-gray-400">63%</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">Empresas adotando IA no Brasil</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Fonte: <span className="text-blue-400 font-medium">IDC Brasil 2024</span> - 
+                      Crescimento de 45% em comparação com 2023
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="p-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-green-400/50 transition-all duration-300"
+              >
+                <div className="flex items-start gap-6">
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-5xl mb-2"
+                  >📈</motion.div>
+                  <div className="flex-1 text-left">
+                    <div className="text-4xl md:text-5xl font-black mb-3">
+                      <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">+285%</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">Conversão de Leads com IA</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Fonte: <span className="text-green-400 font-medium">Gartner Brasil</span> - 
+                      Empresas que usam IA convertem 3,85x mais leads em média
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="p-8 bg-gradient-to-r from-orange-900/30 to-red-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300"
+              >
+                <div className="flex items-start gap-6">
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-5xl mb-2"
+                  >⚡</motion.div>
+                  <div className="flex-1 text-left">
+                    <div className="text-4xl md:text-5xl font-black text-white mb-3">
+                      <span className="bg-gradient-to-r from-[#FD7E00] to-red-400 bg-clip-text text-transparent">-50%</span> em custos
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">Automação com IA</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Fonte: <span className="text-[#FD7E00] font-medium">MCTI Brasil</span> - 
+                      Redução média de custos operacionais de 50% com automação inteligente
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="p-8 bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+              >
+                <h3 className="text-xl md:text-2xl font-black text-white mb-6 flex items-center gap-3 justify-center">
+                  <motion.span
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="text-3xl"
+                  >🚀</motion.span>
+                  Por que Automação + IA é Essencial Agora?
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6 text-left">
+                  {[
+                    {
+                      title: "Competitividade",
+                      desc: "83% das empresas de alto crescimento usam IA"
+                    },
+                    {
+                      title: "Eficiência",
+                      desc: "70% mais produtividade em equipe de vendas"
+                    },
+                    {
+                      title: "Escalabilidade",
+                      desc: "2x mais capacidade sem contratar"
+                    }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.8 + i * 0.1 }}
+                      className="space-y-2"
+                    >
+                      <h4 className="font-bold text-[#FD7E00] text-base">{item.title}</h4>
+                      <p className="text-gray-300 text-sm">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1.1 }}
+                  className="mt-6 pt-6 border-t border-white/20"
+                >
+                  <p className="text-xs text-gray-400 italic">
+                    Fontes: IDC Brasil, Gartner, MCTI, McKinsey Brasil - Pesquisa de Mercado 2024
+                  </p>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -553,12 +719,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 6 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 7 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 6 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 7 : prev - 1));
   };
 
   useEffect(() => {
