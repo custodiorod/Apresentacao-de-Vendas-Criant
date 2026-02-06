@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 10) * 100);
+    setProgress(((currentSlide + 1) / 11) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -104,142 +104,7 @@ export default function Home() {
       )
     },
     {
-      id: "pain-points",
-      content: (
-        <div className="flex flex-col items-center justify-center h-full text-center px-6">
-          <div className="max-w-7xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-4xl md:text-6xl font-black text-white mb-4"
-            >
-              Os <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Maiores Desafios</span> do Mercado
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-300 mb-14 max-w-2xl mx-auto font-light"
-            >
-              Por que empresas de construção e imobiliárias no Brasil perdem oportunidades diariamente
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto"
-            >
-              {[
-                {
-                  title: "Leads Perdidos",
-                  stat: "48%",
-                  description: "dos leads são perdidos por falta de resposta rápida",
-                  trend: "Mercado de construção civil perde R$ 80 bi/ano",
-                  icon: "📉"
-                },
-                {
-                  title: "Follow-ups Lentos",
-                  stat: "24h",
-                  description: "tempo médio de resposta (ideal: 5 minutos)",
-                  trend: "78% compram com quem responde primeiro",
-                  icon: "⏰"
-                },
-                {
-                  title: "Agendamento Manual",
-                  stat: "35%",
-                  description: "dos agendamentos são cancelados por erro humano",
-                  trend: "Automação reduz custos em até 40%",
-                  icon: "📋"
-                },
-                {
-                  title: "Sem Insights de Dados",
-                  stat: "73%",
-                  description: "das empresas não usam dados para decidir",
-                  trend: "Empresas data-driven crescem 5x mais",
-                  icon: "📊"
-                }
-              ].map((item, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 50, rotateX: -10 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  whileHover={{ 
-                    y: -10, 
-                    scale: 1.02,
-                    rotateX: 5
-                  }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.4 + i * 0.15,
-                    type: "spring",
-                    stiffness: 200
-                  }}
-                  className="group p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#FD7E00]/60 hover:from-[#FD7E00]/20 hover:to-[#FF6600]/10 transition-all duration-500 relative overflow-hidden"
-                  style={{ perspective: "1000px" }}
-                >
-                  <motion.div 
-                    className="absolute top-0 right-0 w-32 h-32 bg-[#FD7E00]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                    }}
-                  />
-                  <motion.div 
-                    className="text-5xl mb-4 relative z-10"
-                    animate={{ 
-                      y: [0, -5, 0],
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: i * 0.3 
-                    }}
-                  >{item.icon}</motion.div>
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ 
-                      type: "spring", 
-                      delay: 0.6 + i * 0.15,
-                      stiffness: 300
-                    }}
-                    className="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent mb-3 relative z-10"
-                  >{item.stat}</motion.div>
-                  <h3 className="text-lg font-bold text-white mb-2 relative z-10">{item.title}</h3>
-                  <p className="text-sm text-gray-300 mb-4 leading-relaxed relative z-10">{item.description}</p>
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
-                    className="text-xs text-[#FD7E00] font-medium relative z-10 bg-[#FD7E00]/10 px-3 py-2 rounded-xl inline-block border border-[#FD7E00]/20"
-                  >
-                    {item.trend}
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              className="mt-12 text-center"
-            >
-              <p className="text-sm text-gray-400 italic">
-                Fonte: IBGE, CBIC, CNAI e relatórios de mercado 2024
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: "market-research",
+      id: "results-metrics",
       content: (
         <div className="flex flex-col items-center justify-center h-full text-center px-6">
           <div className="max-w-6xl mx-auto">
@@ -249,7 +114,7 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="text-4xl md:text-6xl font-black text-white mb-4"
             >
-              <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">IA no Brasil</span>
+              Métricas de <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">WhatsApp</span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0 }}
@@ -257,405 +122,32 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
             >
-              O mercado está mudando rapidamente - veja os números da pesquisa de mercado
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-8 max-w-5xl mx-auto"
-            >
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="p-8 bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-blue-400/50 transition-all duration-300"
-              >
-                <div className="flex items-start gap-6">
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="text-5xl mb-2"
-                  >🤖</motion.div>
-                  <div className="flex-1 text-left">
-                    <div className="text-4xl md:text-5xl font-black text-white mb-3">
-                      <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">37%</span> vs <span className="text-gray-400">63%</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2">Empresas adotando IA no Brasil</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Fonte: <span className="text-blue-400 font-medium">IDC Brasil 2024</span> - 
-                      Crescimento de 45% em comparação com 2023
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="p-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-green-400/50 transition-all duration-300"
-              >
-                <div className="flex items-start gap-6">
-                  <motion.div
-                    animate={{ 
-                      y: [0, -10, 0],
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-5xl mb-2"
-                  >📈</motion.div>
-                  <div className="flex-1 text-left">
-                    <div className="text-4xl md:text-5xl font-black mb-3">
-                      <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">+285%</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2">Conversão de Leads com IA</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Fonte: <span className="text-green-400 font-medium">Gartner Brasil</span> - 
-                      Empresas que usam IA convertem 3,85x mais leads em média
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="p-8 bg-gradient-to-r from-orange-900/30 to-red-900/30 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300"
-              >
-                <div className="flex items-start gap-6">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-5xl mb-2"
-                  >⚡</motion.div>
-                  <div className="flex-1 text-left">
-                    <div className="text-4xl md:text-5xl font-black text-white mb-3">
-                      <span className="bg-gradient-to-r from-[#FD7E00] to-red-400 bg-clip-text text-transparent">-50%</span> em custos
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2">Automação com IA</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Fonte: <span className="text-[#FD7E00] font-medium">MCTI Brasil</span> - 
-                      Redução média de custos operacionais de 50% com automação inteligente
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="p-8 bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-purple-400/50 transition-all duration-300"
-              >
-                <h3 className="text-xl md:text-2xl font-black text-white mb-6 flex items-center gap-3 justify-center">
-                  <motion.span
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="text-3xl"
-                  >🚀</motion.span>
-                  Por que Automação + IA é Essencial Agora?
-                </h3>
-                <div className="grid md:grid-cols-3 gap-6 text-left">
-                  {[
-                    {
-                      title: "Competitividade",
-                      desc: "83% das empresas de alto crescimento usam IA"
-                    },
-                    {
-                      title: "Eficiência",
-                      desc: "70% mais produtividade em equipe de vendas"
-                    },
-                    {
-                      title: "Escalabilidade",
-                      desc: "2x mais capacidade sem contratar"
-                    }
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: 0.8 + i * 0.1 }}
-                      className="space-y-2"
-                    >
-                      <h4 className="font-bold text-[#FD7E00] text-base">{item.title}</h4>
-                      <p className="text-gray-300 text-sm">{item.desc}</p>
-                    </motion.div>
-                  ))}
-                </div>
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 1.1 }}
-                  className="mt-6 pt-6 border-t border-white/20"
-                >
-                  <p className="text-xs text-gray-400 italic">
-                    Fontes: IDC Brasil, Gartner, MCTI, McKinsey Brasil - Pesquisa de Mercado 2024
-                  </p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: "ai-system",
-      content: (
-        <div className="flex flex-col items-center justify-center h-full text-center px-6">
-          <div className="max-w-7xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-4xl md:text-6xl font-black text-white mb-4"
-            >
-              Como Funciona a <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">IA da Criant</span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
-            >
-              Sistema inteligente que automatiza todo o processo de vendas
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-left p-8 bg-gradient-to-br from-blue-900/30 to-purple-900/30 backdrop-blur-xl rounded-3xl border border-blue-400/30"
-              >
-                <motion.div 
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="text-5xl mb-4 inline-block"
-                >🤖</motion.div>
-                <h3 className="text-xl font-bold text-white mb-4">O que os Agentes de IA Fazem</h3>
-                <ul className="space-y-3 text-gray-300 text-sm">
-                  {[
-                    "Respondem leads automaticamente 24/7",
-                    "Qualificam prospects em segundos",
-                    "Agendam reuniões sem intervenção humana",
-                    "Acompanham todo o funil de vendas",
-                    "Gerenciam follow-ups automáticos"
-                  ].map((item, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.5 + i * 0.1 }}
-                      className="flex items-start gap-2"
-                    >
-                      <span className="text-green-400 mt-1">✓</span>
-                      <span>{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-left p-8 bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-xl rounded-3xl border border-green-400/30"
-              >
-                <motion.div 
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="text-5xl mb-4 inline-block"
-                >🔗</motion.div>
-                <h3 className="text-xl font-bold text-white mb-4">Integrações WhatsApp & CRM</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <motion.div
-                      animate={{ 
-                        y: [0, -5, 0]
-                      }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
-                      className="text-3xl"
-                    >💬</motion.div>
-                    <div>
-                      <h4 className="font-semibold text-green-400 mb-1">WhatsApp Business</h4>
-                      <p className="text-gray-300 text-sm">Respostas instantâneas, automação de mensagens, agendamento via chat</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <motion.div
-                      animate={{ 
-                        y: [0, -5, 0]
-                      }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
-                      className="text-3xl"
-                    >📊</motion.div>
-                    <div>
-                      <h4 className="font-semibold text-blue-400 mb-1">CRM Integrado</h4>
-                      <p className="text-gray-300 text-sm">Sincronização de dados, histórico completo, pipeline de vendas automatizado</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8"
-            >
-              {[
-                {
-                  icon: "🧠",
-                  title: "Banco de Dados Vetorial",
-                  desc: "Armazena contexto completo do cliente para respostas personalizadas e precisas",
-                  color: "from-purple-500 to-pink-500"
-                },
-                {
-                  icon: "⚡",
-                  title: "Respostas Rápidas",
-                  desc: "IA processa e responde em segundos, 24 horas por dia, 7 dias por semana",
-                  color: "from-yellow-500 to-orange-500"
-                },
-                {
-                  icon: "🎯",
-                  title: "Ações Integradas",
-                  desc: "Dispara automaticamente follow-ups, agendamentos e propostas",
-                  color: "from-green-500 to-teal-500"
-                },
-                {
-                  icon: "📚",
-                  title: "Playbooks de Vendas",
-                  desc: "Scripts otimizados para cada etapa do funil de vendas",
-                  color: "from-blue-500 to-cyan-500"
-                },
-                {
-                  icon: "🔔",
-                  title: "Notificações Inteligentes",
-                  desc: "Alertas em tempo real para sua equipe sobre oportunidades urgentes",
-                  color: "from-red-500 to-orange-500"
-                },
-                {
-                  icon: "📈",
-                  title: "Analytics em Tempo Real",
-                  desc: "Métricas e insights para otimizar continuamente o desempenho",
-                  color: "from-indigo-500 to-purple-500"
-                }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30, rotateY: -10 }}
-                  animate={{ opacity: 1, y: 0, rotateY: 0 }}
-                  whileHover={{ 
-                    y: -5, 
-                    scale: 1.05
-                  }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: 0.7 + i * 0.1,
-                    type: "spring"
-                  }}
-                  className="p-5 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300 relative overflow-hidden"
-                  style={{ perspective: "1000px" }}
-                >
-                  <motion.div 
-                    className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-r ${item.color} rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-30`}
-                    animate={{
-                      scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                    }}
-                  />
-                  <motion.div 
-                    className="text-4xl mb-3 relative z-10"
-                    animate={{ 
-                      rotate: [0, 10, -10, 0],
-                    }}
-                    transition={{ 
-                      duration: 3, 
-                      repeat: Infinity, 
-                      delay: i * 0.4 
-                    }}
-                  >{item.icon}</motion.div>
-                  <h4 className="text-sm md:text-base font-bold text-white mb-2 relative z-10 leading-tight">{item.title}</h4>
-                  <p className="text-xs text-gray-300 leading-relaxed relative z-10">{item.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: "results",
-      content: (
-        <div className="flex flex-col items-center justify-center h-full text-center px-6">
-          <div className="max-w-7xl mx-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-4xl md:text-6xl font-black text-white mb-4"
-            >
-              <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Resultados Reais</span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light"
-            >
-              Métricas de WhatsApp, aumento de vendas e resultados financeiros
+              Compare os resultados antes e depois da IA
             </motion.p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="p-6 bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-xl rounded-3xl border border-green-400/30"
+                className="p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-xl rounded-3xl border border-white/20"
               >
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
-                  📈
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+                  📉
                   <span>Antes da IA</span>
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Tempo de Resposta</div>
-                    <div className="text-3xl font-bold text-gray-300">24 horas</div>
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      className="h-1 bg-red-500 rounded mt-2"
-                    />
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Tempo de Resposta</div>
+                    <div className="text-5xl font-black text-gray-300">24 horas</div>
                   </div>
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Conversão</div>
-                    <div className="text-3xl font-bold text-gray-300">12%</div>
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "12%" }}
-                      transition={{ duration: 1, delay: 0.7 }}
-                      className="h-1 bg-red-500 rounded mt-2"
-                    />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Conversão</div>
+                    <div className="text-5xl font-black text-gray-300">12%</div>
                   </div>
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Vendas/mês</div>
-                    <div className="text-3xl font-bold text-gray-300">R$ 45k</div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Vendas/mês</div>
+                    <div className="text-5xl font-black text-gray-300">R$ 45k</div>
                   </div>
                 </div>
               </motion.div>
@@ -664,68 +156,70 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="p-6 bg-gradient-to-br from-[#FD7E00]/40 to-orange-900/40 backdrop-blur-xl rounded-3xl border border-[#FD7E00]/30"
+                className="p-8 bg-gradient-to-br from-[#FD7E00]/40 to-orange-900/40 backdrop-blur-xl rounded-3xl border border-[#FD7E00]/40"
               >
                 <motion.div 
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 0.5, repeat: Infinity }}
-                  className="text-5xl mb-4 inline-block"
+                  className="text-6xl mb-6 inline-block"
                 >🚀</motion.div>
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+                <h3 className="text-2xl font-bold text-white mb-6 flex items-center justify-center gap-2">
                   <span>Depois da IA</span>
-                  <span className="px-3 py-1 bg-[#FD7E00] rounded-full text-xs font-black">+350%</span>
+                  <span className="px-4 py-2 bg-[#FD7E00] rounded-full text-sm font-black">+350%</span>
                 </h3>
-                <div className="space-y-4">
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Tempo de Resposta</div>
-                    <div className="text-3xl font-bold text-[#FD7E00]">30 segundos</div>
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      className="h-1 bg-green-400 rounded mt-2"
-                    />
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Tempo de Resposta</div>
+                    <div className="text-5xl font-black text-[#FD7E00]">30 segundos</div>
                   </div>
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Conversão</div>
-                    <div className="text-3xl font-bold text-[#FD7E00]">42%</div>
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      animate={{ width: "42%" }}
-                      transition={{ duration: 1, delay: 0.7 }}
-                      className="h-1 bg-green-400 rounded mt-2"
-                    />
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Conversão</div>
+                    <div className="text-5xl font-black text-[#FD7E00]">42%</div>
                   </div>
-                  <div className="bg-black/30 rounded-xl p-4">
-                    <div className="text-sm text-gray-400 mb-1">Vendas/mês</div>
-                    <div className="text-3xl font-bold text-[#FD7E00]">R$ 200k</div>
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", delay: 0.8, stiffness: 200 }}
-                      className="mt-3 text-sm text-green-400 font-semibold"
-                    >+344% crescimento</motion.div>
+                  <div>
+                    <div className="text-sm text-gray-400 mb-2">Vendas/mês</div>
+                    <div className="text-5xl font-black text-[#FD7E00]">R$ 200k</div>
                   </div>
                 </div>
               </motion.div>
             </div>
-
-            <motion.div 
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "results-financial",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
             >
+              Resultados <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Financeiros</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
+            >
+              Impacto acumulado em 12 meses
+            </motion.p>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
               {[
                 {
-                  title: "Mensagens WhatsApp/mês",
+                  title: "Mensagens/mês",
                   before: "1.200",
                   after: "4.800",
                   icon: "💬",
                   color: "from-green-400 to-emerald-400"
                 },
                 {
-                  title: "Leads qualificados",
+                  title: "Leads Qualificados",
                   before: "45",
                   after: "156",
                   icon: "🎯",
@@ -744,15 +238,13 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
-                  className="p-5 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300 relative overflow-hidden"
-                  style={{ perspective: "1000px" }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                  className="p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300 relative overflow-hidden"
                 >
                   <motion.div
-                    className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-r ${item.color} rounded-full blur-2xl opacity-20`}
+                    className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-r ${item.color} rounded-full blur-2xl opacity-20`}
                     animate={{
                       scale: [1, 1.2, 1],
-                      opacity: [0.2, 0.3, 0.2],
                     }}
                     transition={{
                       duration: 3,
@@ -761,14 +253,14 @@ export default function Home() {
                     }}
                   />
                   <motion.div 
-                    className="text-4xl mb-3 relative z-10"
+                    className="text-4xl mb-4 relative z-10"
                     animate={{ 
                       rotate: [0, 10, -10, 0],
                     }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
                   >{item.icon}</motion.div>
                   <h4 className="text-sm font-bold text-white mb-3 relative z-10">{item.title}</h4>
-                  <div className="flex items-center justify-between gap-2 relative z-10">
+                  <div className="flex items-center justify-between gap-3 relative z-10">
                     <div className="text-center">
                       <div className="text-xs text-gray-400 mb-1">Antes</div>
                       <div className="text-2xl font-bold text-gray-300">{item.before}</div>
@@ -776,7 +268,7 @@ export default function Home() {
                     <motion.div 
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.8 + i * 0.1, type: "spring" }}
+                      transition={{ duration: 0.3, delay: 0.4 + i * 0.1, type: "spring" }}
                       className="text-3xl font-black text-[#FD7E00]"
                     >→</motion.div>
                     <div className="text-center">
@@ -784,23 +276,23 @@ export default function Home() {
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: 0.9 + i * 0.1, type: "spring" }}
-                        className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
+                        transition={{ duration: 0.4, delay: 0.5 + i * 0.1, type: "spring" }}
+                        className={`text-3xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
                       >{item.after}</motion.div>
                     </div>
                   </div>
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
-                    transition={{ duration: 1, delay: 1 + i * 0.15 }}
-                    className="h-1 bg-gradient-to-r from-white/20 to-white/10 rounded mt-3"
+                    transition={{ duration: 1, delay: 0.6 + i * 0.15 }}
+                    className="h-1 bg-gradient-to-r from-white/20 to-white/10 rounded mt-4"
                   />
-                  <div className="mt-3 text-center relative z-10">
+                  <div className="mt-4 text-center relative z-10">
                     <motion.div
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: 1.2 + i * 0.15 }}
-                      className="text-xs text-green-400 font-semibold inline-flex items-center gap-1 bg-green-400/10 px-2 py-1 rounded-lg"
+                      transition={{ duration: 0.3, delay: 0.7 + i * 0.15 }}
+                      className="text-xs text-green-400 font-semibold inline-flex items-center gap-1 bg-green-400/10 px-3 py-1 rounded-lg"
                     >
                       <span>+{(parseInt(item.after.replace(/[^\d]/g, '')) / parseInt(item.before.replace(/[^\d]/g, '')) * 100).toFixed(0)}%</span>
                       <span className="text-green-400">aumento</span>
@@ -808,50 +300,42 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.3 }}
-              className="mt-8 p-6 bg-gradient-to-r from-[#FD7E00]/20 via-purple-500/20 to-blue-500/20 backdrop-blur-xl rounded-2xl border border-white/20 max-w-4xl mx-auto"
+              transition={{ duration: 0.5, delay: 1.2 }}
+              className="p-8 bg-gradient-to-r from-[#FD7E00]/20 via-purple-500/20 to-blue-500/20 backdrop-blur-xl rounded-3xl border border-white/20 max-w-4xl mx-auto"
             >
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center justify-center gap-2">
-                <motion.span
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="text-2xl"
-                >💰</motion.span>
-                Impacto Financeiro Acumulado (12 meses)
-              </h3>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="text-sm text-gray-400 mb-2">Receita Anterior</div>
-                  <div className="text-3xl font-bold text-gray-300">R$ 540k</div>
+                  <div className="text-sm text-gray-400 mb-3">Receita Anterior (12 meses)</div>
+                  <div className="text-5xl font-bold text-gray-300">R$ 540k</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-gray-400 mb-2">Receita com IA</div>
+                  <div className="text-sm text-gray-400 mb-3">Receita com IA (12 meses)</div>
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 1.5, type: "spring", stiffness: 200 }}
-                    className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent"
+                    transition={{ duration: 0.5, delay: 1.4, type: "spring", stiffness: 200 }}
+                    className="text-6xl font-black bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent"
                   >R$ 2.4M</motion.div>
                 </div>
               </div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.7 }}
-                className="mt-4 pt-4 border-t border-white/20"
+                transition={{ duration: 0.6, delay: 1.6 }}
+                className="mt-6 pt-6 border-t border-white/20"
               >
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-2xl font-bold text-white">Ganho Total:</span>
                   <motion.span 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 2 }}
-                    className="text-3xl md:text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+                    transition={{ duration: 0.5, delay: 1.8 }}
+                    className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
                   >+R$ 1.86M</motion.span>
                 </div>
               </motion.div>
@@ -1175,12 +659,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 9 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 10 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 9 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 10 : prev - 1));
   };
 
   useEffect(() => {
