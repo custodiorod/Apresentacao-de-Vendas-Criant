@@ -55,7 +55,7 @@ export default function Home() {
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="text-2xl"
               >🚀</motion.span>
-              <span className="text-sm font-semibold text-[#FD7E00] tracking-wide">ACELERE AS VENDAS</span>
+              <span className="text-sm font-semibold text-[#FD7E00] tracking-wide">Acelere Suas Vendas com a IA da Criant</span>
             </motion.div>
             
             <motion.h1 
@@ -81,7 +81,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             >
-              Somos uma agência que ajuda empreendedores brasileiros nos EUA a captar clientes e crescer no mercado americano
+              Obtenha resultados reais e mensuráveis com a nossa IA automatizada, desenvolvida para transformar a gestão de vendas e marketing da sua empresa de construção ou imobiliária.
             </motion.p>
             
             <motion.div
