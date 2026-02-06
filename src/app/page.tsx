@@ -114,7 +114,7 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="text-4xl md:text-6xl font-black text-white mb-4"
             >
-              Os <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Maiores Desafios</span>
+              Os <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Maiores Desafios</span> do Mercado
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0 }}
