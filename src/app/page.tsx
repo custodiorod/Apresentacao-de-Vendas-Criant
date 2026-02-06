@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 8) * 100);
+    setProgress(((currentSlide + 1) / 9) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -405,6 +405,201 @@ export default function Home() {
       )
     },
     {
+      id: "ai-system",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-7xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
+            >
+              Como Funciona a <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">IA da Criant</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
+            >
+              Sistema inteligente que automatiza todo o processo de vendas
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-left p-8 bg-gradient-to-br from-blue-900/30 to-purple-900/30 backdrop-blur-xl rounded-3xl border border-blue-400/30"
+              >
+                <motion.div 
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="text-5xl mb-4 inline-block"
+                >🤖</motion.div>
+                <h3 className="text-xl font-bold text-white mb-4">O que os Agentes de IA Fazem</h3>
+                <ul className="space-y-3 text-gray-300 text-sm">
+                  {[
+                    "Respondem leads automaticamente 24/7",
+                    "Qualificam prospects em segundos",
+                    "Agendam reuniões sem intervenção humana",
+                    "Acompanham todo o funil de vendas",
+                    "Gerenciam follow-ups automáticos"
+                  ].map((item, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 + i * 0.1 }}
+                      className="flex items-start gap-2"
+                    >
+                      <span className="text-green-400 mt-1">✓</span>
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-left p-8 bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-xl rounded-3xl border border-green-400/30"
+              >
+                <motion.div 
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-5xl mb-4 inline-block"
+                >🔗</motion.div>
+                <h3 className="text-xl font-bold text-white mb-4">Integrações WhatsApp & CRM</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <motion.div
+                      animate={{ 
+                        y: [0, -5, 0]
+                      }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+                      className="text-3xl"
+                    >💬</motion.div>
+                    <div>
+                      <h4 className="font-semibold text-green-400 mb-1">WhatsApp Business</h4>
+                      <p className="text-gray-300 text-sm">Respostas instantâneas, automação de mensagens, agendamento via chat</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <motion.div
+                      animate={{ 
+                        y: [0, -5, 0]
+                      }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+                      className="text-3xl"
+                    >📊</motion.div>
+                    <div>
+                      <h4 className="font-semibold text-blue-400 mb-1">CRM Integrado</h4>
+                      <p className="text-gray-300 text-sm">Sincronização de dados, histórico completo, pipeline de vendas automatizado</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-8"
+            >
+              {[
+                {
+                  icon: "🧠",
+                  title: "Banco de Dados Vetorial",
+                  desc: "Armazena contexto completo do cliente para respostas personalizadas e precisas",
+                  color: "from-purple-500 to-pink-500"
+                },
+                {
+                  icon: "⚡",
+                  title: "Respostas Rápidas",
+                  desc: "IA processa e responde em segundos, 24 horas por dia, 7 dias por semana",
+                  color: "from-yellow-500 to-orange-500"
+                },
+                {
+                  icon: "🎯",
+                  title: "Ações Integradas",
+                  desc: "Dispara automaticamente follow-ups, agendamentos e propostas",
+                  color: "from-green-500 to-teal-500"
+                },
+                {
+                  icon: "📚",
+                  title: "Playbooks de Vendas",
+                  desc: "Scripts otimizados para cada etapa do funil de vendas",
+                  color: "from-blue-500 to-cyan-500"
+                },
+                {
+                  icon: "🔔",
+                  title: "Notificações Inteligentes",
+                  desc: "Alertas em tempo real para sua equipe sobre oportunidades urgentes",
+                  color: "from-red-500 to-orange-500"
+                },
+                {
+                  icon: "📈",
+                  title: "Analytics em Tempo Real",
+                  desc: "Métricas e insights para otimizar continuamente o desempenho",
+                  color: "from-indigo-500 to-purple-500"
+                }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30, rotateY: -10 }}
+                  animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.05
+                  }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.7 + i * 0.1,
+                    type: "spring"
+                  }}
+                  className="p-5 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300 relative overflow-hidden"
+                  style={{ perspective: "1000px" }}
+                >
+                  <motion.div 
+                    className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-r ${item.color} rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 opacity-30`}
+                    animate={{
+                      scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                    }}
+                  />
+                  <motion.div 
+                    className="text-4xl mb-3 relative z-10"
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity, 
+                      delay: i * 0.4 
+                    }}
+                  >{item.icon}</motion.div>
+                  <h4 className="text-sm md:text-base font-bold text-white mb-2 relative z-10 leading-tight">{item.title}</h4>
+                  <p className="text-xs text-gray-300 leading-relaxed relative z-10">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: "stats",
       content: (
         <div className="flex flex-col items-center justify-center h-full text-center px-6">
@@ -719,12 +914,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 7 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 8 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 7 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 8 : prev - 1));
   };
 
   useEffect(() => {
