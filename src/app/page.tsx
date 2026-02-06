@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 6) * 100);
+    setProgress(((currentSlide + 1) / 7) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -98,6 +98,141 @@ export default function Home() {
                   </svg>
                 </span>
               </button>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: "pain-points",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-7xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
+            >
+              Os <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Maiores Desafios</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-14 max-w-2xl mx-auto font-light"
+            >
+              Por que empresas de construção e imobiliárias no Brasil perdem oportunidades diariamente
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto"
+            >
+              {[
+                {
+                  title: "Leads Perdidos",
+                  stat: "48%",
+                  description: "dos leads são perdidos por falta de resposta rápida",
+                  trend: "Mercado de construção civil perde R$ 80 bi/ano",
+                  icon: "📉"
+                },
+                {
+                  title: "Follow-ups Lentos",
+                  stat: "24h",
+                  description: "tempo médio de resposta (ideal: 5 minutos)",
+                  trend: "78% compram com quem responde primeiro",
+                  icon: "⏰"
+                },
+                {
+                  title: "Agendamento Manual",
+                  stat: "35%",
+                  description: "dos agendamentos são cancelados por erro humano",
+                  trend: "Automação reduz custos em até 40%",
+                  icon: "📋"
+                },
+                {
+                  title: "Sem Insights de Dados",
+                  stat: "73%",
+                  description: "das empresas não usam dados para decidir",
+                  trend: "Empresas data-driven crescem 5x mais",
+                  icon: "📊"
+                }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 50, rotateX: -10 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.02,
+                    rotateX: 5
+                  }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 0.4 + i * 0.15,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  className="group p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#FD7E00]/60 hover:from-[#FD7E00]/20 hover:to-[#FF6600]/10 transition-all duration-500 relative overflow-hidden"
+                  style={{ perspective: "1000px" }}
+                >
+                  <motion.div 
+                    className="absolute top-0 right-0 w-32 h-32 bg-[#FD7E00]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                    }}
+                  />
+                  <motion.div 
+                    className="text-5xl mb-4 relative z-10"
+                    animate={{ 
+                      y: [0, -5, 0],
+                    }}
+                    transition={{ 
+                      duration: 2, 
+                      repeat: Infinity, 
+                      delay: i * 0.3 
+                    }}
+                  >{item.icon}</motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ 
+                      type: "spring", 
+                      delay: 0.6 + i * 0.15,
+                      stiffness: 300
+                    }}
+                    className="text-5xl md:text-6xl font-black bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent mb-3 relative z-10"
+                  >{item.stat}</motion.div>
+                  <h3 className="text-lg font-bold text-white mb-2 relative z-10">{item.title}</h3>
+                  <p className="text-sm text-gray-300 mb-4 leading-relaxed relative z-10">{item.description}</p>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
+                    className="text-xs text-[#FD7E00] font-medium relative z-10 bg-[#FD7E00]/10 px-3 py-2 rounded-xl inline-block border border-[#FD7E00]/20"
+                  >
+                    {item.trend}
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+              className="mt-12 text-center"
+            >
+              <p className="text-sm text-gray-400 italic">
+                Fonte: IBGE, CBIC, CNAI e relatórios de mercado 2024
+              </p>
             </motion.div>
           </div>
         </div>
@@ -418,12 +553,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 5 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 6 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 5 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 6 : prev - 1));
   };
 
   useEffect(() => {
