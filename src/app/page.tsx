@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 11) * 100);
+    setProgress(((currentSlide + 1) / 12) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -585,6 +585,189 @@ export default function Home() {
       )
     },
     {
+      id: "development-lifecycle",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
+            >
+              Ciclo de <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Desenvolvimento</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light"
+            >
+              Do kickoff ao sucesso em 4 etapas
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              {[
+                {
+                  step: "01",
+                  title: "Onboarding",
+                  icon: "🚀",
+                  desc: "Kickoff, configuração inicial e treinamento da equipe",
+                  duration: "2 semanas",
+                  color: "from-purple-500 to-pink-500"
+                },
+                {
+                  step: "02",
+                  title: "MVP",
+                  icon: "🎯",
+                  desc: "Desenvolvimento do produto mínimo viável com funcionalidades essenciais",
+                  duration: "4 semanas",
+                  color: "from-blue-500 to-cyan-500"
+                },
+                {
+                  step: "03",
+                  title: "Validação",
+                  icon: "✅",
+                  desc: "Testes com usuários reais, ajustes baseados em feedback e otimizações",
+                  duration: "2 semanas",
+                  color: "from-green-500 to-emerald-500"
+                },
+                {
+                  step: "04",
+                  title: "Ativação",
+                  icon: "🎉",
+                  desc: "Deploy oficial, treinamento completo e início das operações",
+                  duration: "1 semana",
+                  color: "from-[#FD7E00] to-red-500"
+                }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ duration: 0.5, delay: 0.3 + i * 0.15, type: "spring" }}
+                  className="p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 hover:border-[#FD7E00]/50 hover:from-[#FD7E00]/20 hover:to-[#FF6600]/10 transition-all duration-300 relative overflow-hidden"
+                  style={{ perspective: "1000px" }}
+                >
+                  <motion.div
+                    className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-r ${item.color} rounded-full blur-3xl opacity-20`}
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.2, 0.4, 0.2],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                    }}
+                  />
+                  <div className="relative z-10">
+                    <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r ${item.color} text-white font-black text-xl mb-4`}>
+                      {item.step}
+                    </div>
+                    <motion.div
+                      className="text-5xl mb-4"
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, delay: i * 0.3 }}
+                    >{item.icon}</motion.div>
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
+                      <span className={`bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+                        {item.title}
+                      </span>
+                    </h3>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">{item.desc}</p>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.5 + i * 0.15, type: "spring" }}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${item.color} text-white font-semibold`}
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={2} strokeDasharray="4" />
+                      </svg>
+                      <span>{item.duration}</span>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
+              className="mt-10 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.4 }}
+                className="p-6 bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl rounded-2xl border border-white/20"
+              >
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <span>📋</span>
+                  Cronograma
+                </h4>
+                <ul className="space-y-3 text-gray-300 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Semana 1-2: Configuração e preparação</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Semana 3-6: Desenvolvimento do MVP</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Semana 7-8: Testes e validação</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Semana 9: Deploy e ativação</span>
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
+                className="p-6 bg-gradient-to-br from-[#FD7E00]/20 to-[#FF6600]/20 backdrop-blur-xl rounded-2xl border border-[#FD7E00]/40"
+              >
+                <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <span>📦</span>
+                  Entregáveis
+                </h4>
+                <ul className="space-y-3 text-gray-300 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Sistema IA integrado (WhatsApp + CRM)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Playbooks de vendas configurados</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Relatórios e dashboards personalizados</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Treinamento da equipe completo</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-white/50">•</span>
+                    <span>Documentação e suporte técnico</span>
+                  </li>
+                </ul>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: "contact",
       content: (
         <div className="flex flex-col items-center justify-center h-full text-center px-6">
@@ -659,12 +842,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 10 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 11 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 10 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 11 : prev - 1));
   };
 
   useEffect(() => {
