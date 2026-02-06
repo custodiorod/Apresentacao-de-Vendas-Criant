@@ -55,14 +55,14 @@ export default function Home() {
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="text-2xl"
               >🚀</motion.span>
-              <span className="text-sm font-semibold text-[#FD7E00] tracking-wide">Acelere Suas Vendas com a IA da Criant</span>
+              <span className="text-sm font-semibold text-[#FD7E00] tracking-wide">IA AUTOMATIZADA</span>
             </motion.div>
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight"
             >
               Acelere Suas Vendas com a
               <motion.span 
@@ -79,7 +79,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-xl md:text-2xl text-gray-300 mb-14 max-w-4xl mx-auto leading-relaxed font-light"
             >
               Obtenha resultados reais e mensuráveis com a nossa IA automatizada, desenvolvida para transformar a gestão de vendas e marketing da sua empresa de construção ou imobiliária.
             </motion.p>
