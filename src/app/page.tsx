@@ -19,7 +19,7 @@ export default function Home() {
     })), []);
 
   useEffect(() => {
-    setProgress(((currentSlide + 1) / 9) * 100);
+    setProgress(((currentSlide + 1) / 10) * 100);
   }, [currentSlide]);
 
   const slides = [
@@ -600,6 +600,267 @@ export default function Home() {
       )
     },
     {
+      id: "results",
+      content: (
+        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+          <div className="max-w-7xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-6xl font-black text-white mb-4"
+            >
+              <span className="bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent">Resultados Reais</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light"
+            >
+              Métricas de WhatsApp, aumento de vendas e resultados financeiros
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="p-6 bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-xl rounded-3xl border border-green-400/30"
+              >
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+                  📈
+                  <span>Antes da IA</span>
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Tempo de Resposta</div>
+                    <div className="text-3xl font-bold text-gray-300">24 horas</div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="h-1 bg-red-500 rounded mt-2"
+                    />
+                  </div>
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Conversão</div>
+                    <div className="text-3xl font-bold text-gray-300">12%</div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "12%" }}
+                      transition={{ duration: 1, delay: 0.7 }}
+                      className="h-1 bg-red-500 rounded mt-2"
+                    />
+                  </div>
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Vendas/mês</div>
+                    <div className="text-3xl font-bold text-gray-300">R$ 45k</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="p-6 bg-gradient-to-br from-[#FD7E00]/40 to-orange-900/40 backdrop-blur-xl rounded-3xl border border-[#FD7E00]/30"
+              >
+                <motion.div 
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                  className="text-5xl mb-4 inline-block"
+                >🚀</motion.div>
+                <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+                  <span>Depois da IA</span>
+                  <span className="px-3 py-1 bg-[#FD7E00] rounded-full text-xs font-black">+350%</span>
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Tempo de Resposta</div>
+                    <div className="text-3xl font-bold text-[#FD7E00]">30 segundos</div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1, delay: 0.5 }}
+                      className="h-1 bg-green-400 rounded mt-2"
+                    />
+                  </div>
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Conversão</div>
+                    <div className="text-3xl font-bold text-[#FD7E00]">42%</div>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "42%" }}
+                      transition={{ duration: 1, delay: 0.7 }}
+                      className="h-1 bg-green-400 rounded mt-2"
+                    />
+                  </div>
+                  <div className="bg-black/30 rounded-xl p-4">
+                    <div className="text-sm text-gray-400 mb-1">Vendas/mês</div>
+                    <div className="text-3xl font-bold text-[#FD7E00]">R$ 200k</div>
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", delay: 0.8, stiffness: 200 }}
+                      className="mt-3 text-sm text-green-400 font-semibold"
+                    >+344% crescimento</motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+            >
+              {[
+                {
+                  title: "Mensagens WhatsApp/mês",
+                  before: "1.200",
+                  after: "4.800",
+                  icon: "💬",
+                  color: "from-green-400 to-emerald-400"
+                },
+                {
+                  title: "Leads qualificados",
+                  before: "45",
+                  after: "156",
+                  icon: "🎯",
+                  color: "from-blue-400 to-cyan-400"
+                },
+                {
+                  title: "ROI em 6 meses",
+                  before: "0x",
+                  after: "4.8x",
+                  icon: "💰",
+                  color: "from-[#FD7E00] to-orange-400"
+                }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+                  className="p-5 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 hover:border-[#FD7E00]/50 transition-all duration-300 relative overflow-hidden"
+                  style={{ perspective: "1000px" }}
+                >
+                  <motion.div
+                    className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-r ${item.color} rounded-full blur-2xl opacity-20`}
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.2, 0.3, 0.2],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                    }}
+                  />
+                  <motion.div 
+                    className="text-4xl mb-3 relative z-10"
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                  >{item.icon}</motion.div>
+                  <h4 className="text-sm font-bold text-white mb-3 relative z-10">{item.title}</h4>
+                  <div className="flex items-center justify-between gap-2 relative z-10">
+                    <div className="text-center">
+                      <div className="text-xs text-gray-400 mb-1">Antes</div>
+                      <div className="text-2xl font-bold text-gray-300">{item.before}</div>
+                    </div>
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.8 + i * 0.1, type: "spring" }}
+                      className="text-3xl font-black text-[#FD7E00]"
+                    >→</motion.div>
+                    <div className="text-center">
+                      <div className="text-xs text-gray-400 mb-1">Depois</div>
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.9 + i * 0.1, type: "spring" }}
+                        className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
+                      >{item.after}</motion.div>
+                    </div>
+                  </div>
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, delay: 1 + i * 0.15 }}
+                    className="h-1 bg-gradient-to-r from-white/20 to-white/10 rounded mt-3"
+                  />
+                  <div className="mt-3 text-center relative z-10">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 1.2 + i * 0.15 }}
+                      className="text-xs text-green-400 font-semibold inline-flex items-center gap-1 bg-green-400/10 px-2 py-1 rounded-lg"
+                    >
+                      <span>+{(parseInt(item.after.replace(/[^\d]/g, '')) / parseInt(item.before.replace(/[^\d]/g, '')) * 100).toFixed(0)}%</span>
+                      <span className="text-green-400">aumento</span>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.3 }}
+              className="mt-8 p-6 bg-gradient-to-r from-[#FD7E00]/20 via-purple-500/20 to-blue-500/20 backdrop-blur-xl rounded-2xl border border-white/20 max-w-4xl mx-auto"
+            >
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center justify-center gap-2">
+                <motion.span
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="text-2xl"
+                >💰</motion.span>
+                Impacto Financeiro Acumulado (12 meses)
+              </h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-sm text-gray-400 mb-2">Receita Anterior</div>
+                  <div className="text-3xl font-bold text-gray-300">R$ 540k</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-sm text-gray-400 mb-2">Receita com IA</div>
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.5, type: "spring", stiffness: 200 }}
+                    className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#FD7E00] to-[#FF6600] bg-clip-text text-transparent"
+                  >R$ 2.4M</motion.div>
+                </div>
+              </div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.7 }}
+                className="mt-4 pt-4 border-t border-white/20"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-2xl font-bold text-white">Ganho Total:</span>
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 2 }}
+                    className="text-3xl md:text-4xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+                  >+R$ 1.86M</motion.span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: "stats",
       content: (
         <div className="flex flex-col items-center justify-center h-full text-center px-6">
@@ -914,12 +1175,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentSlide((prev) => (prev === 8 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === 9 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentSlide((prev) => (prev === 0 ? 8 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? 9 : prev - 1));
   };
 
   useEffect(() => {
